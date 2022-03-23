@@ -5,7 +5,7 @@ import pandas as pd
 st.write(""" # Welcome to VASSAV App ! # """)
 
 def data():
-    DATA = 'C:/Users/harisathwik/Desktop/CDAC.csv'
+    DATA = 'CDAC.csv'
     df = pd.read_csv(DATA)
 
 
