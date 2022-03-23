@@ -1,2 +1,2 @@
-! pip install streamlit
-! streamlit hello
+% pip install streamlit
+% streamlit hello
