@@ -14,7 +14,7 @@ if uploaded_file is not None:
 
      option = st.selectbox(
      'Select your Filter',
-     ("Grey", "Edge Detection", "Gaussian Blur", "Contour"))
+     ("Grey", "Edge Detection", "Gaussian Blur", "Contour", "Pencil Sketch"))
 
      st.write('You selected:', option)
 
@@ -57,3 +57,12 @@ if uploaded_file is not None:
           src_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
           thresh = 100 # initial threshold
           thresh_callback(thresh)
+
+     elif option == "Pencil Sketch":
+          grey_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+          invert_img = cv2.bitwise_not(grey_img)
+          blur_img = cv2.GaussianBlur(invert_img, (111,111), 0)
+          invblur_img = cv2.bitwise_not(blur_img)
+          sketch_img = cv2.divide(grey_img, invblur_img, scale=256.0)
+
+          col2.image(sketch_img)
