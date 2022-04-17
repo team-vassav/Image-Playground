@@ -10,13 +10,6 @@ def slider():
 
     return value1, value2
 
-def download(output_image):
-
-    cv2.imwrite("Output.jpg", output_image)
-
-    with open("Output.jpg", "rb") as image_contents:
-        st.download_button("Download", data=image_contents, file_name="Output.jpg", mime="image/jpg")
-
 def process(photo):
     option = st.sidebar.selectbox('Select your Filter', ('None', 'Contour', 'Edge Detection', 'Face Detection', 'Face Mesh', 'Gaussian Blur', 'Grey', 'Inverse Edge Detection', 'Invert', 'Pencil Sketch', 'Pose Estimation'))
 
@@ -27,20 +20,12 @@ def process(photo):
         col1.image(photo, caption="Original", channels="BGR")
         col2.image(photo, caption="No Filter", channels="BGR")
 
-        answer = st.checkbox("Wanna download the output image ?")
-        if answer:
-            download(photo)
-
     elif option == "Grey":
 
         grey_photo = cv2.cvtColor(photo, cv2.COLOR_BGR2GRAY)
 
         col1.image(photo, caption="Original", channels="BGR")
         col2.image(grey_photo, caption="Grey")
-
-        answer = st.checkbox("Wanna download the output image ?")
-        if answer:
-            download(grey_photo)
 
     elif option == "Edge Detection":
 
@@ -50,10 +35,6 @@ def process(photo):
         col1.image(photo, caption="Original", channels="BGR")
         col2.image(edge_image, caption="Edge Detection")
 
-        answer = st.checkbox("Wanna download the output image ?")
-        if answer:
-            download(edge_image)
-
     elif option == "Gaussian Blur":
 
         value1, value2 = slider()
@@ -62,10 +43,6 @@ def process(photo):
 
         col1.image(photo, caption="Original", channels="BGR")
         col2.image(blur_photo, channels="BGR", caption="Gaussian Blur")
-
-        answer = st.checkbox("Wanna download the output image ?")
-        if answer:
-            download(blur_photo)
 
     elif option == "Contour":
 
@@ -85,21 +62,12 @@ def process(photo):
         col1.image(photo, caption="Original", channels="BGR")
         col2.image(drawing, caption="Contour")
 
-        answer = st.checkbox("Wanna download the output image ?")
-        if answer:
-            download(drawing)
-
     elif option == "Invert":
 
         invert_photo = cv2.bitwise_not(photo)
 
         col1.image(photo, caption="Original", channels="BGR")
         col2.image(invert_photo, caption="Invert")
-
-        answer = st.checkbox("Wanna download the output image ?")
-        if answer:
-            download(invert_photo)
-
 
     elif option == "Pencil Sketch":
 
@@ -114,10 +82,6 @@ def process(photo):
         col1.image(photo, caption="Original", channels="BGR")
         col2.image(sketch_image, caption="Pencil Sketch")
 
-        answer = st.checkbox("Wanna download the output image ?")
-        if answer:
-            download(sketch_image)
-
     elif option == "Inverse Edge Detection":
 
         value1, value2 = slider()
@@ -127,10 +91,6 @@ def process(photo):
 
         col1.image(photo, caption="Original", channels="BGR")
         col2.image(inv_edge_image, caption="Inverse Edge Detection")
-
-        answer = st.checkbox("Wanna download the output image ?")
-        if answer:
-            download(inv_edge_image)
 
     elif option == "Face Detection":
 
@@ -153,10 +113,6 @@ def process(photo):
 
         col1.image(photo, caption="Original", channels="BGR")
         col2.image(face_image, channels="BGR", caption="Face Detection")
-
-        answer = st.checkbox("Wanna download the output image ?")
-        if answer:
-            download(face_image)
 
     elif option == "Face Mesh":
 
@@ -194,10 +150,6 @@ def process(photo):
         col1.image(photo, caption="Original", channels="BGR")
         col2.image(face_mesh_image, channels="BGR", caption="Face Mesh")
 
-        answer = st.checkbox("Wanna download the output image ?")
-        if answer:
-            download(face_mesh_image)
-
     elif option == "Pose Estimation":
 
         mp_drawing = mp.solutions.drawing_utils
@@ -223,11 +175,6 @@ def process(photo):
 
             col1.image(photo, caption="Original", channels="BGR")
             col2.image(pose_image, channels="BGR", caption="Pose Estimation")
-
-            answer = st.checkbox("Wanna download the output image ?")
-            if answer:
-                download(pose_image)
-
 
 st.write("# Image Manipulator")
 
