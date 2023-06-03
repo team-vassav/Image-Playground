@@ -176,7 +176,7 @@ def process(photo):
             col1.image(photo, caption="Original", channels="BGR")
             col2.image(pose_image, channels="BGR", caption="Pose Estimation")
 
-st.write("# Image Manipulator")
+st.write("# Image Playground")
 
 st.info("* Use Options under the left side bar.")
 st.info("* Use Wide Mode for a better view. You can find it under Right Menu > Settings > Tick Wide mode.")
