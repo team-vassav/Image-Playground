@@ -1,4 +1,4 @@
-# Image Manipulator
+# Image Playground
 
 
 This Web App is based on [Streamlit](https://streamlit.io/) and [OpenCV](https://opencv.org/). The Primary Focus of this app is to implement the various image filters (manipulators). Check the app at this [link](https://share.streamlit.io/team-vassav/streamlit/main/Image_Manipulator_Streamlit.py).
