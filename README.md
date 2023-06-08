@@ -6,7 +6,6 @@ This Web App is based on [Streamlit](https://streamlit.io/) and [OpenCV](https:/
 https://user-images.githubusercontent.com/84219813/163118590-addd3afd-d9a0-48ce-bdee-e094f4c61be6.mp4
 
 
-
 ### Original
 
 <img src = "https://user-images.githubusercontent.com/84219813/162984125-90335d42-7ef0-417d-9225-0603dc653aa5.jpg" width ="200" />
